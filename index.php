@@ -18,6 +18,9 @@
             </ul>
         </div>
 
+        <!-- banner -->
+        <?php include('includes/banner.php') ?>
+
         <!-- Page Layout -->
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
