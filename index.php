@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+<?php require_once("includes/head_section.php") ?>
     <title>Lamp Blog | Home</title>
 </head>
 <body>
