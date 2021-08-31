@@ -25,9 +25,4 @@
         </div>
 
         <!-- footer -->
-        <div class="footer">
-            <p>ChouQin Info Co. &copy; <?php echo date('Y'); ?></p>
-        </div>
-    </div>
-</body>
-</html>
+        <?php include("includes/footer.php") ?>
