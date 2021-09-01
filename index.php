@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php require_once('config.php') ?>
 <?php require_once("includes/head_section.php") ?>
     <title>Lamp Blog | Home</title>
 </head>
