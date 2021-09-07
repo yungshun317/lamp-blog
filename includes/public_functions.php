@@ -48,4 +48,13 @@ function getPublishedPostsByTopic($topic_id) {
     return $final_posts;
 }
 
+// Return topic name by topic id
+function getTopicNameById($id) {
+    global $conn;
+    $sql = "SELECT name FROM topics WHERE id=$id";
+    $result = mysqli_query($conn, $sql);
+    $topic = mysqli_fetch_assoc($result);
+    return $topic['name'];
+}
+
 ?>
