@@ -28,4 +28,24 @@ function getPostTopic($post_id) {
     return $topic;
 }
 
+// Return all posts under a topic
+function getPublishedPostsByTopic($topic_id) {
+    global $conn;
+    $sql = "SELECT * FROM posts ps 
+            WHERE ps.id IN 
+            (SELECT pt.post_id FROM post_topic pt 
+                WHERE pt.topic_id=$topic_id GROUP BY pt.post_id
+                HAVING COUNT(1) = 1)";
+    $result = mysqli_query($conn, $sql);
+    // Fetch all posts as an associative array called $posts
+    $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    $final_posts = array();
+    foreach ($posts as $post) {
+        $post['topic'] = getPostTopic($post['id']);
+        array_push($final_posts, $post);
+    }
+    return $final_posts;
+}
+
 ?>
