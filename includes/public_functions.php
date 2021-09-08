@@ -57,4 +57,21 @@ function getTopicNameById($id) {
     return $topic['name'];
 }
 
+// Return a single post
+function getPost($slug) {
+    global $conn;
+    // Get single post slug
+    $post_slug = $_GET['post-slug'];
+    $sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
+    $result = mysqli_query($conn, $sql);
+
+    // Fetch query results as associative array
+    $post = mysqli_fetch_assoc($result);
+    if ($post) {
+        // Get the topic to which this post belongs
+        $post['topic'] = getPostTopic($post['id']);
+    }
+    return $post;
+}
+
 ?>
