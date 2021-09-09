@@ -74,4 +74,13 @@ function getPost($slug) {
     return $post;
 }
 
+// Return all topics
+function getAllTopics() {
+    global $conn;
+    $sql = "SELECT * FROM topics";
+    $result = mysqli_query($conn, $sql);
+    $topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $topics;
+}
+
 ?>
